@@ -3,17 +3,10 @@ import { registerUser } from './helpers/auth.controller';
 import { LoginPage } from './pages/loginPage';
 import { DashboardPage } from './pages/dashboardPage';
 import { CategoryPage } from './pages/categoryPage';
+import { createCategoryDataTest, createUserPayload } from './data/dataTest';
 
-const userPayload = {
-    email: `user1211${Date.now()}@test.com`,
-    password: 'test@12345',
-    roles: ['ROLE_ADMIN'],
-  }
-
-const dataTest = {
-  category: `${Date.now()}jagCategoria`,
-  subCategory: `${Date.now()}SubCategory`, 
-}  
+const userPayload = createUserPayload();
+const dataTest = createCategoryDataTest();
 
 test('should create an user through API', async ({ request }) => {
   const response =  await registerUser (request,userPayload);

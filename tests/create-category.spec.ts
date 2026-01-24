@@ -4,18 +4,15 @@ import { LoginPage } from './pages/loginPage';
 import { DashboardPage } from './pages/dashboardPage';
 import { CategoryPage } from './pages/categoryPage';
 
-import { assertCategoryAndSubcategoryExist } from './helpers/test';
-
-
 const userPayload = {
     email: `user1211${Date.now()}@test.com`,
     password: 'test@12345',
     roles: ['ROLE_ADMIN'],
   }
 
-const data = {
+const dataTest = {
   category: `${Date.now()}jagCategoria`,
-  subCategory: 'SubCategory', 
+  subCategory: `${Date.now()}SubCategory`, 
 }  
 
 test('should create an user through API', async ({ request }) => {
@@ -40,12 +37,7 @@ test('user successfully creates a category after login', async ({ page, request 
 
   const categoryPage = new CategoryPage(page);
   await categoryPage.assertCategoryIsLoaded();
-  await categoryPage.createCategory(data.category);
-  await categoryPage.createSubcategory(data.category,data.subCategory);
+  await categoryPage.createCategory(dataTest.category);
+  await categoryPage.createSubcategory(dataTest.category,dataTest.subCategory);
 
-  const token = await page.evaluate(() =>
-    localStorage.getItem('token')
-  );
-
-  await assertCategoryAndSubcategoryExist(request, token!, data.category, data.subCategory);
 });

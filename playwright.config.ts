@@ -27,9 +27,9 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: 'https://club-administration.qa.qubika.com',
+    baseURL: 'https://api.club-administration.qa.qubika.com',
     extraHTTPHeaders:{
-      trace:'e2e-playright'
+      trace:'test'
     }
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */

@@ -5,14 +5,15 @@ export async function assertCategoryAndSubcategoryExist(
  categoryName: string,
  subCategoryName: string
 ) {
- const response = await request.get('https://api.club-administration.qa.qubika.com/api/category-type', {
+ const response = await request.get('/api/category-type', {
    headers: {
      Authorization: `Bearer ${token}`,
-     trace: 'e2e-playwright',
+     trace: 'test',
    },
  });
 
  console.log('STATSTd -----', response.status());
+
 
 
  expect(response.ok()).toBeTruthy();

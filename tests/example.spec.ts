@@ -4,7 +4,7 @@ import { LoginPage } from './pages/loginPage';
 import { DashboardPage } from './pages/dashboardPage';
 import { CategoryPage } from './pages/categoryPage';
 
-//import { assertCategoryAndSubcategoryExist } from './helpers/test';
+import { assertCategoryAndSubcategoryExist } from './helpers/test';
 
 
 const userPayload = {
@@ -43,9 +43,9 @@ test('user successfully creates a category after login', async ({ page, request 
   await categoryPage.createCategory(data.category);
   await categoryPage.createSubcategory(data.category,data.subCategory);
 
-//  const token = await page.evaluate(() =>
-//    localStorage.getItem('token')
-//  );
+  const token = await page.evaluate(() =>
+    localStorage.getItem('token')
+  );
 
-//  await assertCategoryAndSubcategoryExist(request, token!, data.category, data.subCategory);
+  await assertCategoryAndSubcategoryExist(request, token!, data.category, data.subCategory);
 });

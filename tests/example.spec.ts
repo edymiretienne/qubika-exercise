@@ -5,13 +5,13 @@ import { DashboardPage } from './pages/dashboardPage';
 import { CategoryPage } from './pages/categoryPage';
 
 const userPayload = {
-    email: 'user1211@test.com',
+    email: `user1211@test.com-${Date.now()}`,
     password: 'test@12345',
     roles: ['ROLE_ADMIN'],
   }
 
 const data = {
-  category: 'jagsdedgiuegdeCategoria',
+  category: `${Date.now()}jagCategoria`,
   subCategory: 'SubCategory', 
 }  
 

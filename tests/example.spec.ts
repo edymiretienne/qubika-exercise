@@ -4,8 +4,11 @@ import { LoginPage } from './pages/loginPage';
 import { DashboardPage } from './pages/dashboardPage';
 import { CategoryPage } from './pages/categoryPage';
 
+//import { assertCategoryAndSubcategoryExist } from './helpers/test';
+
+
 const userPayload = {
-    email: `user1211@test.com-${Date.now()}`,
+    email: `user1211${Date.now()}@test.com`,
     password: 'test@12345',
     roles: ['ROLE_ADMIN'],
   }
@@ -39,4 +42,10 @@ test('user successfully creates a category after login', async ({ page, request 
   await categoryPage.assertCategoryIsLoaded();
   await categoryPage.createCategory(data.category);
   await categoryPage.createSubcategory(data.category,data.subCategory);
+
+//  const token = await page.evaluate(() =>
+//    localStorage.getItem('token')
+//  );
+
+//  await assertCategoryAndSubcategoryExist(request, token!, data.category, data.subCategory);
 });
